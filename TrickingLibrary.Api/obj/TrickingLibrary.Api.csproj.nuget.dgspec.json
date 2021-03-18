@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kosa Endre\\RiderProjects\\TrickingLibrary\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj": {}
+    "D:\\Learning\\Projects\\.NetCore\\tricking-library\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kosa Endre\\RiderProjects\\TrickingLibrary\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj": {
+    "D:\\Learning\\Projects\\.NetCore\\tricking-library\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kosa Endre\\RiderProjects\\TrickingLibrary\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj",
+        "projectUniqueName": "D:\\Learning\\Projects\\.NetCore\\tricking-library\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj",
         "projectName": "TrickingLibrary.Api",
-        "projectPath": "C:\\Users\\Kosa Endre\\RiderProjects\\TrickingLibrary\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj",
-        "packagesPath": "C:\\Users\\Kosa Endre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kosa Endre\\RiderProjects\\TrickingLibrary\\TrickingLibrary.Api\\obj\\",
+        "projectPath": "D:\\Learning\\Projects\\.NetCore\\tricking-library\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj",
+        "packagesPath": "C:\\Users\\Exxus\\.nuget\\packages\\",
+        "outputPath": "D:\\Learning\\Projects\\.NetCore\\tricking-library\\TrickingLibrary.Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kosa Endre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Exxus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

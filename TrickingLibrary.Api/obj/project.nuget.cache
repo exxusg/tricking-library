@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "69CjMb+j7EmGAtcR9jdsSIi+PAZkHLPaHaCmlIcLNHVPZ06HK23Au2tSEQmtAclajPGJH5IriZObGpyHhJQ4GQ==",
+  "dgSpecHash": "8Yo+VzSsKuwRmZVCwSczyXx+ZNYpytoaJMwsxhdRCWWrlMfKUUsgYwMQXP8+/FeMdAtl+VRRCyVab86sgON+9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kosa Endre\\RiderProjects\\TrickingLibrary\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj",
+  "projectFilePath": "D:\\Learning\\Projects\\.NetCore\\tricking-library\\TrickingLibrary.Api\\TrickingLibrary.Api.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
