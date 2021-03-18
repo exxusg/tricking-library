@@ -1,67 +1,98 @@
 <template>
+  <div>
 
-      <div class="text-xs-center">
-        <logo />
-        <vuetify-logo />
+
+    <div v-if="tricks">
+      <div v-for="t in tricks">
+        <video width="400" controls :src="`http://localhost:5500/api/videos/${t.video}`"></video>
       </div>
-      <div v-if="tricks">
-        <p v-for="t in tricks">
-          {{t.name}}
-        </p>
-      </div>
-      <div>
-        <v-text-field label="Trick name" v-model="trickName"></v-text-field>
-        <v-btn @click="saveTrick">Save trick</v-btn>
-      </div>
-        {{ message }}
-        <v-btn @click="reset">Reset message</v-btn>
-      <v-btn @click="resetTricks">Reset trick</v-btn>
+    </div>
+    <div>
+
+    </div>
+
+    <v-stepper v-model="step">
+      <v-stepper-header>
+        <v-stepper-step :complete="step > 1" step="1">
+          Upload Video
+        </v-stepper-step>
+
+        <v-divider></v-divider>
+
+        <v-stepper-step :complete="step > 2" step="2">
+          Information
+        </v-stepper-step>
+
+        <v-divider></v-divider>
+
+        <v-stepper-step step="3">
+          Confirmation
+        </v-stepper-step>
+      </v-stepper-header>
+
+      <v-stepper-items>
+        <v-stepper-content step="1">
+          <div>
+            <v-file-input accept="video/*" @change="handleFile"></v-file-input>
+          </div>
+        </v-stepper-content>
+
+        <v-stepper-content step="2">
+          <div>
+            <v-text-field label="Trick name" v-model="trickName"></v-text-field>
+            <v-btn @click="saveTrick">Save trick</v-btn>
+          </div>
+        </v-stepper-content>
+
+        <v-stepper-content step="3">
+          <div>Successs</div>
+        </v-stepper-content>
+      </v-stepper-items>
+    </v-stepper>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-import { mapState, mapActions, mapMutations } from 'vuex'
+import {mapState, mapActions, mapMutations} from 'vuex'
 
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  },
+  components: {},
   data: () => ({
-    trickName: ''
+    trickName: '',
+    step: 1
   }),
   computed: {
-    ...mapState({
-      message: state => state.message
-    }),
-    ...mapState('tricks',{
-      tricks: state => state.tricks
-    })
+    ...mapState('tricks', ['tricks']),
+    ...mapState('videos', ['uploadPromise']),
   },
   methods: {
-    ...mapMutations([
-      'reset'
-    ]),
-    ...mapMutations('tricks', {
-      resetTricks: 'reset'
+    ...mapMutations('videos', {
+      resetVideos: 'reset'
     }),
     ...mapActions('tricks', ['createTrick']),
+    ...mapActions('videos', ['startVideoUpload']),
+    async handleFile(file) {
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append("video", file);
+      this.startVideoUpload({formData});
+      this.step++;
+    },
     async saveTrick() {
-      await this.createTrick({trick: {name: this.trickName}});
-    }
+      if(!this.uploadPromise)
+      {
+        console.log("uploadPromise is null!")
+        return;
+      }
+      const video = await this.uploadPromise;
+      await this.createTrick({trick: {name: this.trickName, video}});
+      this.trickName = "";
+      this.step++;
+      this.resetVideos();
+    },
   },
-  /*async fetch() {
-    await this.$store.dispatch("fetchMessage");
-  },*/
-  /*asyncData({payload}){
-    console.log("asyncData called");
-    return axios.get('http://localhost:5500/api/home')
-      //deconstructing data from the response
-      .then(({data}) => {
-        return {message: data}
-      })
-  },*/
-  created() {}
+  created() {
+  }
 }
 </script>

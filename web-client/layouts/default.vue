@@ -1,14 +1,17 @@
 <template>
-  <v-app dark>
-    <v-content>
+  <v-app>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
 <script>
 export default {
+  created() {
+    this.$vuetify.theme.dark = true;
+  }
 }
 </script>
