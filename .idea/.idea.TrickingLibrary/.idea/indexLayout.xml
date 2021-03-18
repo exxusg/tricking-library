@@ -6,6 +6,8 @@
       <Path>web-client</Path>
     </attachedFolders>
     <explicitIncludes />
-    <explicitExcludes />
+    <explicitExcludes>
+      <Path>web-client/node_modules</Path>
+    </explicitExcludes>
   </component>
 </project>
