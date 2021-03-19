@@ -21,3 +21,26 @@ C:\Users\Kosa Endre\RiderProjects\TrickingLibrary\TrickingLibrary.Api\obj\Debug\
 C:\Users\Kosa Endre\RiderProjects\TrickingLibrary\TrickingLibrary.Api\obj\Debug\net5.0\ref\TrickingLibrary.Api.dll
 C:\Users\Kosa Endre\RiderProjects\TrickingLibrary\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.pdb
 C:\Users\Kosa Endre\RiderProjects\TrickingLibrary\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.genruntimeconfig.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\appsettings.Development.json
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\appsettings.json
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Api.exe
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Api.deps.json
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Api.runtimeconfig.json
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Api.runtimeconfig.dev.json
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Api.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\ref\TrickingLibrary.Api.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Api.pdb
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.csprojAssemblyReference.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.AssemblyInfoInputs.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.AssemblyInfo.cs
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.csproj.CoreCompileInputs.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\staticwebassets\TrickingLibrary.Api.StaticWebAssets.Manifest.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\staticwebassets\TrickingLibrary.Api.StaticWebAssets.xml
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\scopedcss\bundle\TrickingLibrary.Api.styles.css
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.RazorTargetAssemblyInfo.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\ref\TrickingLibrary.Api.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.pdb
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.genruntimeconfig.cache

@@ -18,8 +18,4 @@ export const actions = {
     const tricks = (await this.$axios.$get('http://localhost:5500/api/tricks'))
     commit("setTricks", {tricks})
   },
-  async createTrick({commit, dispatch}, {trick}) {
-    await this.$axios.post('http://localhost:5500/api/tricks', trick)
-    await dispatch("fetchTricks")
-  }
 }
