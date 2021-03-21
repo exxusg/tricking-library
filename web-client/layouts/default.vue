@@ -6,12 +6,9 @@
       <v-toolbar-title>Tricking library</v-toolbar-title>
 
       <v-spacer></v-spacer>
-
-      <v-btn depressed @click="toggleActivity">
-        Upload
-      </v-btn>
+      
+      <video-upload></video-upload>
     </v-app-bar>
-    <video-upload></video-upload>
     <v-main>
       <v-container>
         <nuxt />

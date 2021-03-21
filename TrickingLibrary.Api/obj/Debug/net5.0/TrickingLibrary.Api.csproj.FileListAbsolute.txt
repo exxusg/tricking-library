@@ -44,3 +44,13 @@ D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net
 D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\ref\TrickingLibrary.Api.dll
 D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.pdb
 D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.genruntimeconfig.cache
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Data.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Models.dll
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Data.pdb
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\bin\Debug\net5.0\TrickingLibrary.Models.pdb
+D:\Learning\Projects\.NetCore\tricking-library\TrickingLibrary.Api\obj\Debug\net5.0\TrickingLibrary.Api.csproj.CopyComplete
