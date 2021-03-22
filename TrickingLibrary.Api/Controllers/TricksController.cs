@@ -25,16 +25,20 @@ namespace TrickingLibrary.Api.Controllers
         
         // /api/tricks/{id}
         [HttpGet("{id}")]
-        public Trick Get(int id) => _context.Tricks.FirstOrDefault(trick => trick.Id.Equals(id));
+        public Trick Get(string id) => _context.Tricks.FirstOrDefault(trick => trick.Id.Equals(id, StringComparison.CurrentCultureIgnoreCase));
         
         // /api/tricks/{id}/submissions - not implemented
         [HttpGet("{trickId}/submissions")]
-        public IEnumerable<Submission> ListSubmissions(int trickId) => _context.Submissions.Where(submission => submission.TrickId.Equals(trickId)).ToList();
+        public IEnumerable<Submission> ListSubmissions(string trickId) => 
+            _context.Submissions
+                .Where(submission => submission.TrickId.Equals(trickId, StringComparison.CurrentCultureIgnoreCase))
+                .ToList();
         
         // /api/tricks
         [HttpPost]
         public async Task<Trick> Create([FromBody] Trick trick)
         {
+            trick.Id = trick.Name.Replace(" ", "-").ToLowerInvariant();
             _context.Add(trick);
             await _context.SaveChangesAsync();
             return trick;
@@ -43,7 +47,7 @@ namespace TrickingLibrary.Api.Controllers
         [HttpPut]
         public async Task<Trick> Update([FromBody] Trick trick)
         {
-            if (trick.Id == 0)
+            if (string.IsNullOrEmpty(trick.Id))
             {
                 return null;
             }
@@ -54,7 +58,7 @@ namespace TrickingLibrary.Api.Controllers
         }
         // /api/tricks/{id}
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var trick = _context.Tricks.FirstOrDefault(trick => trick.Id.Equals(id));
             trick.Deleted = true;
