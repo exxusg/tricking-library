@@ -1,28 +1,35 @@
 <template>
   <div>
-    <div v-if="tricks">
-      <div v-for="t in tricks">
-        <v-btn :to="`/tricks/${t.id}`">{{t.name}}</v-btn>
+    <div v-for="s in sections">
+      <div class="d-flex flex-column align-center">
+        <p class="text-h5">{{ s.title }}</p>
+        <div>
+          <v-btn class="mx-1" v-for="item in s.collection" :to="s.getRoute(item.id)">{{ item.name }}</v-btn>
+        </div>
       </div>
+      <v-divider class="my-5"></v-divider>
     </div>
-    
   </div>
 </template>
 
 <script>
-import {mapState, mapActions, mapMutations} from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   components: {},
   data: () => ({
   }),
   computed: {
-    ...mapState('tricks', ['tricks']),
+    ...mapState('tricks', ["tricks", "categories", "difficulties"]),
+    sections() {
+      return [
+        {collection: this.tricks, title: "Tricks", getRoute: (id) => `/trick/${id}`},
+        {collection: this.categories, title: "Categories", getRoute: (id) => `/category/${id}`},
+        {collection: this.difficulties, title: "Difficulties", getRoute: (id) => `/difficulty/${id}`},
+      ]
+    }
   },
   created() {
-  },
-  async fetch() {
-    await this.$store.dispatch("tricks/fetchTricks");
   }
 }
 </script>

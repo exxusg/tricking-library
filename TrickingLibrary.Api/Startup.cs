@@ -1,8 +1,10 @@
+using System.Threading.Channels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TrickingLibrary.Api.BackgroundServices;
 using TrickingLibrary.Data;
 
 namespace TrickingLibrary.Api
@@ -18,6 +20,12 @@ namespace TrickingLibrary.Api
 
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Dev"));
 
+            services.AddHostedService<VideoEditingBackgroundService>();
+            //if u dont need the parameter in the arrow just use "_"
+            services.AddSingleton(_ => Channel.CreateUnbounded<EditVideoMessage>());
+            
+            services.AddSingleton<VideoManager>();
+            
             services.AddCors((options) => options.AddPolicy(AllCors,build => 
                 build.AllowAnyHeader()
                 .AllowAnyOrigin()

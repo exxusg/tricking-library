@@ -6,8 +6,8 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - Tricking Library',
+    title: 'Welcome',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -31,6 +31,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/global.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -58,6 +59,7 @@ export default {
   */
   vuetify: {
     theme: {
+      dark: true,
       primary: colors.blue.darken2,
       accent: colors.grey.darken3,
       secondary: colors.amber.darken3,

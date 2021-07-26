@@ -2,34 +2,28 @@
 
 const initState = () => ({
   uploadPromise: null,
+  uploadCancelSource: null,
+  uploadCompleted: false,
   active: false,
-  type: "",
-  step: 1
+  component: null
 })
 
 export const state = initState;
 
 export const mutations = {
-  toggleActivity(state) {
-    state.active = !state.active;
-    if(!state.active){
-      Object.assign(state, initState())
-    }
+  activate(state, {component}) {
+    state.active = true;
+    state.component = component;
   },
-  setType(state, type){
-    state.type = type;
-    if(type === UPLOAD_TYPE.TRICK){
-      state.step++;
-    }
-    else if(type === UPLOAD_TYPE.SUBMISSION)
-      state.step += 2;
+  hide(state) {
+    state.active = false;
   },
-  incStep(state){
-    state.step++;
-  },
-  setTask(state, {promise}) {
+  setTask(state, {promise, source}) {
     state.uploadPromise = promise;
-    state.step++;
+    state.uploadCancelSource = source;
+  },
+  completeUpload(state) {
+    state.uploadCompleted = true;
   },
   reset(state) {
     Object.assign(state, initState())
@@ -39,14 +33,44 @@ export const mutations = {
 export const actions = {
   startVideoUpload({commit, dispatch}, {formData}) {
     // .post returns the whole promise, .$post returns promise.data
-    const promise = this.$axios.$post("/api/videos", formData);
-    commit("setTask", {promise})
+    const source = this.$axios.CancelToken.source()
+    const promise = this.$axios.post("/api/videos", formData, {
+        cancelToken: source.token,
+        progress: false
+      }).then(({data}) => {
+        commit('completeUpload')
+        return data
+      }).catch(err => {
+        if(this.$axios.isCancel(err)){
+          // todo popup notify
+        }
+        
+      });
+    
+    //source.cancel()
+    commit("setTask", {promise, source})
   },
-  async createTrick({state, commit, dispatch}, {trick, submission}) {
-    if (state.type === UPLOAD_TYPE.TRICK) {
-      const createdTrick = await this.$axios.$post('/api/tricks', trick)
-      submission.trickId = createdTrick.id;
+  async cancelUpload({state, commit}){
+    if(state.uploadPromise) {
+      if(state.uploadCompleted) {
+        commit('hide')
+        const video = await state.uploadPromise
+        await this.$axios.delete("/api/videos/" + video)
+      }
+      else {
+        state.uploadCancelSource.cancel()
+      }
     }
-    await this.$axios.$post('/api/submissions', submission)
+    
+    commit('reset')
+  },
+  async createSubmission({state, commit, dispatch}, {form}) {
+    if (!state.uploadPromise) {
+      console.log("uploadPromise is null!")
+      return;
+    }
+    
+    form.video = await state.uploadPromise;
+    await dispatch('submissions/createSubmission', {form}, {root: true})
   }
 }

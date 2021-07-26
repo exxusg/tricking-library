@@ -3,11 +3,13 @@
     <v-app-bar app dense>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Tricking library</v-toolbar-title>
+      <nuxt-link class="text--primary" style="text-decoration: none" to="/">
+        <v-toolbar-title>Tricking library</v-toolbar-title>
+      </nuxt-link>
 
       <v-spacer></v-spacer>
       
-      <video-upload></video-upload>
+      <content-creation-dialog></content-creation-dialog>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -18,16 +20,9 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-import VideoUpload from "~/components/video-upload";
+import ContentCreationDialog from "@/components/content-creation/content-creation-dialog";
 
 export default {
-  components: {VideoUpload},
-  methods: {
-    ...mapMutations('video-upload', ['toggleActivity'])
-  },
-  created() {
-    this.$vuetify.theme.dark = true;
-  }
+  components: {ContentCreationDialog}
 }
 </script>
