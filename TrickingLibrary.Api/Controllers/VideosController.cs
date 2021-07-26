@@ -47,7 +47,7 @@ namespace TrickingLibrary.Api.Controllers
             if (!_videoManager.TemporaryFileExists(fileName))
                 return NoContent();
             
-            _videoManager.DeleteTemporaryVideo(fileName);
+            _videoManager.DeleteTemporaryFile(fileName);
             
             return Ok();
         }

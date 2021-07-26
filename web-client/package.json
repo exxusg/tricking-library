@@ -11,12 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/vuetify": "1.11.3",
-    "@nuxtjs/axios": "^5.3.6",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.15.3",
+    "@nuxt/types": "^2.15.7",
     "nodemon": "^1.18.9",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"

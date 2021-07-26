@@ -17,20 +17,17 @@ namespace TrickingLibrary.Api.BackgroundServices
 {
     public class VideoEditingBackgroundService : BackgroundService
     {
-        private readonly IWebHostEnvironment _env;
         private readonly ChannelReader<EditVideoMessage> _channelReader;
         private readonly ILogger<VideoEditingBackgroundService> _logger;
         private readonly IServiceProvider _serviceProvider;
         private readonly VideoManager _videoManager;
 
         public VideoEditingBackgroundService(
-            IWebHostEnvironment env, 
             Channel<EditVideoMessage> channel,
             ILogger<VideoEditingBackgroundService> logger,
             IServiceProvider serviceProvider,
             VideoManager videoManager)
         {
-            _env = env;
             _channelReader = channel.Reader;
             _logger = logger;
             _serviceProvider = serviceProvider;
@@ -43,19 +40,19 @@ namespace TrickingLibrary.Api.BackgroundServices
             while (await _channelReader.WaitToReadAsync(stoppingToken))
             {
                 var message = await _channelReader.ReadAsync(stoppingToken);
+                var inputPath = _videoManager.TemporarySavePath(message.Input);
+                var outputConvertedName = _videoManager.GenerateConvertedFileName();
+                var outputThumbnailName = _videoManager.GenerateThumbnailFileName();
+                var outputConvertedPath = _videoManager.TemporarySavePath(outputConvertedName);
+                var outputThumbnailPath = _videoManager.TemporarySavePath(outputThumbnailName);
+                
                 try
                 {
-                    var inputPath = _videoManager.TemporarySavePath(message.Input);
-                    var outputConvertedName = _videoManager.GenerateConvertedFileName();
-                    var outputThumbnailName = _videoManager.GenerateThumbnailFileName();
-                    var outputConvertedPath = _videoManager.TemporarySavePath(outputConvertedName);
-                    var outputThumbnailPath = _videoManager.TemporarySavePath(outputThumbnailName);
                     var startInfo = new ProcessStartInfo
                     {
-                        FileName = Path.Combine(_env.ContentRootPath, "ffmpeg", "ffmpeg.exe"),
+                        FileName = _videoManager.FFMPEGPath,
                         Arguments =
                             $"-y -i {inputPath} -an -vf scale=640x480 {outputConvertedPath} -ss 00:00:00 -vframes 1 -vf scale=640x480 {outputThumbnailPath}",
-                        WorkingDirectory = _env.WebRootPath,
                         CreateNoWindow = true,
                         UseShellExecute = false
                     };
@@ -90,10 +87,12 @@ namespace TrickingLibrary.Api.BackgroundServices
                 catch (Exception e)
                 {
                     _logger.LogError(e, "Video processing failed for {Input}", message.Input);
+                    _videoManager.DeleteTemporaryFile(outputConvertedName);
+                    _videoManager.DeleteTemporaryFile(outputConvertedName);
                 }
                 finally
                 {
-                    _videoManager.DeleteTemporaryVideo(message.Input);
+                    _videoManager.DeleteTemporaryFile(message.Input);
                 }
                 
             }

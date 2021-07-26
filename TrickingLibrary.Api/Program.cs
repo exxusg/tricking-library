@@ -54,11 +54,15 @@ namespace TrickingLibrary.Api
                         }
                     });
 
-                    /*context.Add(new Submission
+                    context.Add(new Submission
                     {
-                        TrickId = "back-flip",
+                        TrickId = "backwards-roll",
                         Description = "Going for max height",
-                        Video = "file_example_MP4_1280_10MG.mp4",
+                        Video = new Video
+                        {
+                            VideoLink = "one.mp4",
+                            ThumbLink = "one.jpg"
+                        },
                         VideoProcessed = true
                     });
                     
@@ -66,9 +70,13 @@ namespace TrickingLibrary.Api
                     {
                         TrickId = "back-flip",
                         Description = "Going for min height",
-                        Video = "file_example_MP4_1280_10MG.mp4",
+                        Video = new Video
+                        {
+                            VideoLink = "two.mp4",
+                            ThumbLink = "two.jpg"
+                        },
                         VideoProcessed = true
-                    });*/
+                    });
 
                     context.SaveChanges();
                 }

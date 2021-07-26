@@ -71,6 +71,7 @@ export const actions = {
     }
     
     form.video = await state.uploadPromise;
-    await dispatch('submissions/createSubmission', {form}, {root: true})
+    await dispatch("submissions/createSubmission", {form}, {root: true})
+    commit('reset')
   }
 }

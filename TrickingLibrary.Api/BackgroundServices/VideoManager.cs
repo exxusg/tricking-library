@@ -14,7 +14,9 @@ namespace TrickingLibrary.Api.BackgroundServices
         public const string ConvertedPrefix = "converted_";
         public const string ThumbnailPrefix = "thumbnail_";        
 
-        public string WorkingDirectory => _environment.WebRootPath;
+        private string WorkingDirectory => _environment.WebRootPath;
+
+        public string FFMPEGPath => Path.Combine(_environment.ContentRootPath, "ffmpeg", "ffmpeg.exe");
 
         public VideoManager(IWebHostEnvironment environment)
         {
@@ -50,10 +52,11 @@ namespace TrickingLibrary.Api.BackgroundServices
             return File.Exists(path);
         }
         
-        public void DeleteTemporaryVideo(string fileName)
+        public void DeleteTemporaryFile(string fileName)
         {
             var path = TemporarySavePath(fileName);
-            File.Delete(path);
+            if(File.Exists(path))
+                File.Delete(path);
         }
         
         public string TemporarySavePath(string fileName)

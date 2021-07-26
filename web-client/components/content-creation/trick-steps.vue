@@ -20,9 +20,9 @@
         </v-stepper-step>
       </v-stepper-header>
 
-      <v-stepper-items>
+      <v-stepper-items class="fpt-0">
 
-        <v-stepper-content class="pt-0" step="1">
+        <v-stepper-content step="1">
           <div>
             <v-text-field label="Trick name" v-model="form.name"></v-text-field>
             <v-text-field label="Description" v-model="form.description"></v-text-field>
@@ -37,7 +37,7 @@
           </div>
         </v-stepper-content>
 
-        <v-stepper-content class="pt-0" step="2">
+        <v-stepper-content step="2">
           <div>
             <v-btn @click="save">Save</v-btn>
           </div>

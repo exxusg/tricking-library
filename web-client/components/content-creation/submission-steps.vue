@@ -32,28 +32,28 @@
         </v-stepper-step>
       </v-stepper-header>
 
-      <v-stepper-items>
-        <v-stepper-content class="pt-0" step="1">
+      <v-stepper-items class="fpt-0">
+        <v-stepper-content step="1">
           <div>
             <v-file-input accept="video/*" @change="handleFile"></v-file-input>
           </div>
         </v-stepper-content>
         
-        <v-stepper-content class="pt-0" step="2">
+        <v-stepper-content step="2">
           <div>
             <v-select :items="trickItems" v-model="form.trickId" label="Select Trick"></v-select>
             <v-btn @click="step++">Next</v-btn>
           </div>
         </v-stepper-content>
 
-        <v-stepper-content class="pt-0" step="3">
+        <v-stepper-content step="3">
           <div>
             <v-text-field label="Description" v-model="form.description"></v-text-field>
             <v-btn @click="step++">Next</v-btn>
           </div>
         </v-stepper-content>
 
-        <v-stepper-content class="pt-0" step="4">
+        <v-stepper-content step="4">
           <div>
             <v-btn @click="save">Save</v-btn>
           </div>
@@ -94,9 +94,8 @@ export default {
     },
     save() {
       this.createSubmission({form: this.form})
-      
+      this.step = 1
       this.hide();
-      Object.assign(this.$data, initState())
     }
   }
 }
